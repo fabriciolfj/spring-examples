@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.fabriciolfj</groupId>
 	<artifactId>java-examples</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>java-examples</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -47,6 +47,25 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-image</goal>
+						</goals>
+						<configuration>
+							<image>
+								<env>
+									<JAVA_OPTS>-Xmx512m</JAVA_OPTS>
+									<name>fabricio211/${project.artifactId}</name>
+									<publish>true</publish>
+									<tags>
+										<tag>${project.version}</tag>
+									</tags>
+								</env>
+							</image>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
