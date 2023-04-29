@@ -1,5 +1,6 @@
 package com.github.fabriciolfj.javaexamples.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,9 @@ public class Address {
     private String state;
     @Column(name = "number")
     private int number;
-    @ManyToOne
+    private String street;
+    @ManyToOne(cascade =  CascadeType.PERSIST)
     @JoinColumn(name = "person_id")
+    @JsonIgnore
     private Person person;
 }

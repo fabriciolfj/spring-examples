@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 8080
   shutdown: graceful
   tomcat:
     connection-timeout: 2s #tempo minimo de conexao inativa
@@ -9,13 +9,14 @@ server:
       min-spare: 5
 
 spring:
+  config:
+    import: aws-secretsmanager:test/secret/
   lifecycle:
     timeout-per-shutdown-phase: 15s #tempo para concluir as operacoes antes de desligar ou matar o microservice
   datasource:
-    password: root
-    username: root
-    url: jdbc:postgresql://localhost:5432/postgres
-    driver-class-name: org.postgresql.Driver
+    username: rds/credentials
+    url: jdbc-secretsmanager:postgresql://localhost:5432/postgres
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver #https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_jdbc.html
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 15
