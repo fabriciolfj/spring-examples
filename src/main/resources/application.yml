@@ -2,8 +2,8 @@ server:
   port: 9001
   shutdown: graceful
   tomcat:
-    connection-timeout: 2s
-    keep-alive-timeout: 15s
+    connection-timeout: 2s #tempo minimo de conexao inativa
+    keep-alive-timeout: 15s #tempo maximo do timeout
     threads:
       max: 50
       min-spare: 5
