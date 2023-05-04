@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/secrets")
 public class TestGetSecretAwsController {
 
-    @Value("${api-key1}")
+    //@Value("${api-key1}")
     private String value1;
 
-    @Value("${api-key2}")
+    //@Value("${api-key2}")
     private String value2;
 
     @GetMapping

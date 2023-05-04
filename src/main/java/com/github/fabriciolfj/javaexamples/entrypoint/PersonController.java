@@ -22,4 +22,10 @@ public class PersonController {
         log.info("person create {}", person);
         service.save(person);
     }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Person findTwoAdresses(@PathVariable("id") final Long id) {
+        return service.getPersonTwoAdresses(id);
+    }
 }

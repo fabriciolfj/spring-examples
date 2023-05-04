@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
+
 @Service
 @RequiredArgsConstructor
 public class PersonService {
@@ -30,4 +35,12 @@ public class PersonService {
 
         repository.save(person);
     }
+
+    @Transactional(propagation = Propagation.NEVER)
+    public Person getPersonTwoAdresses(final Long id) {
+        return ofNullable(repository.getPersonGreaterThanThowAddress(id))
+                .orElseThrow(() -> new RuntimeException("person not found by id " + id));
+    }
+
+
 }

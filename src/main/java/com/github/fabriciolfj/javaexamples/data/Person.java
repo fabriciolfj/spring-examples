@@ -1,14 +1,18 @@
 package com.github.fabriciolfj.javaexamples.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,14 +31,24 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<Address> addresses;
 
+    public List<Address> getAddresses() {
+        if (this.addresses == null) {
+            this.addresses = new ArrayList<>();
+        }
+        return this.addresses;
+    }
+
+    @JsonIgnore
     public boolean isPresentAddress() {
         return isNotNullAddress() && isNotEmpty();
     }
 
+    @JsonIgnore
     public boolean isNotNullAddress() {
         return Objects.nonNull(addresses);
     }
 
+    @JsonIgnore
     public boolean isNotEmpty() {
         return !addresses.isEmpty();
     }
