@@ -20,17 +20,13 @@ import static java.util.Optional.ofNullable;
 public class PersonService {
 
     private final PersonRepository repository;
-    private final AddressRepository addressRepository;
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
     public void save(final Person person) {
         if (person.isPresentAddress()) {
             person.getAddresses().forEach(ad -> {
                 ad.setPerson(person);
-                addressRepository.save(ad);
             });
-
-            return;
         }
 
         repository.save(person);

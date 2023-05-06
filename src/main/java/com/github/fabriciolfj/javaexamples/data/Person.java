@@ -28,7 +28,7 @@ public class Person {
     @Column(name = "last_name", length = 255, nullable = false)
     @JsonProperty("last_name")
     private String lastName;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
     private List<Address> addresses;
 
     public List<Address> getAddresses() {

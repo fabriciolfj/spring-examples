@@ -8,6 +8,7 @@ server:
       max: 50
       min-spare: 5
 
+
 spring:
   config:
     import: aws-secretsmanager:test/secret/
@@ -38,6 +39,9 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 management:
+  tracing:
+    sampling:
+      probability: 1.0
   endpoints:
     web:
       exposure:
@@ -51,3 +55,6 @@ management:
       enabled: false
     prometheus:
       enabled: true
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
