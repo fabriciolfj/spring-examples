@@ -10,6 +10,7 @@ server:
 
 
 spring:
+  thread-executor: virtual
   config:
     import: aws-secretsmanager:test/secret/
   lifecycle:

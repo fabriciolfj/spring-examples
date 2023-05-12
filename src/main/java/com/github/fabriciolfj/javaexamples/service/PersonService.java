@@ -5,6 +5,7 @@ import com.github.fabriciolfj.javaexamples.data.Person;
 import com.github.fabriciolfj.javaexamples.repository.AddressRepository;
 import com.github.fabriciolfj.javaexamples.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 import static java.util.Optional.ofNullable;
 
+@Lazy
 @Service
 @RequiredArgsConstructor
 public class PersonService {
