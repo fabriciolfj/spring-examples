@@ -14,6 +14,7 @@ public class Sl4jRunnable implements Runnable {
     public void run() {
         MDC.put("transaction.id", tx.getTransactionId());
         MDC.put("transaction.owner", tx.getSender());
+        MDC.put("userid", tx.getUserId());
         new Slf4jTransferService().transfer(tx.getAmount());
         MDC.clear();
     }

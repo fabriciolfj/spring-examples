@@ -11,7 +11,7 @@ public class TransferFactory {
     private TransferFactory() { }
 
     public static Transfer toTransfer() {
-        final Transfer transfer = new Transfer(UUID.randomUUID().toString(), "teste", RANDOM.nextLong(100));
+        final Transfer transfer = new Transfer(UUID.randomUUID().toString(), "teste", RANDOM.nextLong(100), UUID.randomUUID().toString());
         return transfer;
     }
 }
