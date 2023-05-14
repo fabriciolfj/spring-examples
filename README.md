@@ -7,3 +7,4 @@
 ## MDC
 - O contexto de diagnóstico mapeado, fornece uma maneira de enriquecer as mensagens de log com informações que podem estar indisponíveis no escopo em que o log 
 - realmente ocorre, mas que podem ser realmente úteis para rastrear melhor a execução do programa.
+- para templates de logs https://logback.qos.ch/manual/layouts.html#writingYourOwnLayout
