@@ -10,6 +10,7 @@
 - para templates de logs https://logback.qos.ch/manual/layouts.html#writingYourOwnLayout
 
 ## Exemplo de consulta graphql
+- http://localhost:8080/graphiql?path=/graphql
 ```
 query {
     recentPosts(count: 10, offset: 0) {
