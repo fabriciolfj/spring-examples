@@ -10,15 +10,22 @@ server:
 
 
 spring:
+  graphql:
+    graphiql.enabled: true
+    schema:
+      locations: classpath:/graphql
   thread-executor: virtual
-  config:
-    import: aws-secretsmanager:test/secret/
+#  config:
+#    import: aws-secretsmanager:test/secret/
   lifecycle:
     timeout-per-shutdown-phase: 15s #tempo para concluir as operacoes antes de desligar ou matar o microservice
   datasource:
-    username: rds/credentials
-    url: jdbc-secretsmanager:postgresql://localhost:5432/postgres
-    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver #https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_jdbc.html
+    username: root
+    password: root
+    url: jdbc:postgresql://localhost:5432/postgres
+    #username: rds/credentials
+    #url: jdbc-secretsmanager:postgresql://localhost:5432/postgres
+    #driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver #https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_jdbc.html
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 15
