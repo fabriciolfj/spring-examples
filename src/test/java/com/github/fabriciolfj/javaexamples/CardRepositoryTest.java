@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) //nao tentar configurar um banco para teste
 @DataJpaTest
-public class PersonRepositoryTest {
+public class CardRepositoryTest {
 
     @Container
     static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:14.1")
