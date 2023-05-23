@@ -35,4 +35,20 @@ mutation {
 
 ```
 
-1.8
+## Aspectos
+- classe java que modulariza um conjunto de preocupações, como log e gerenciamento de transações.
+- também conhecidos como conselhos de classes, que podem ser chamados antes, depois do retorno de um objeto.
+- anotações suportadas: @Before, @After, @AfterReturning, @AfeterThrowing e @Around
+- exemplo:
+```
+    @Before("execution(* ArithmeticCalculator.add(..))")
+    public void logBefore() {
+        log.info("the method add() begins");
+    }
+```
+- o log será gerado antes da chamada do metodo
+- o pointcut, é a expressão dentro do @Before, corresponde a um conjunto de pontos de junção
+- o * significa que o método pode ser privado, protected ou public e qualquer tipo de retorno
+- os dois .. correspondem a qualquer número de argumentos
+- a anotação @Around, e a combinação de todas as anteriores, obtem controle total do pointcut, podemos alterar args e o retorno do metodo.
+1.14
