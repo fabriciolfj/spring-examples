@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.javaexamples.entity;
+package com.github.fabriciolfj.javaexamples.service;
 
 public interface UnitCalculator {
 

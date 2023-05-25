@@ -1,6 +1,6 @@
 package com.github.fabriciolfj.javaexamples.service.impl;
 
-import com.github.fabriciolfj.javaexamples.entity.UnitCalculator;
+import com.github.fabriciolfj.javaexamples.service.UnitCalculator;
 import org.springframework.stereotype.Component;
 
 @Component

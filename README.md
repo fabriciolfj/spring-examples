@@ -51,4 +51,55 @@ mutation {
 - o * significa que o método pode ser privado, protected ou public e qualquer tipo de retorno
 - os dois .. correspondem a qualquer número de argumentos
 - a anotação @Around, e a combinação de todas as anteriores, obtem controle total do pointcut, podemos alterar args e o retorno do metodo.
-1.14
+
+### PointCut
+- podemos referenciar classes que possuem uma determinada anotação, por exemplo:
+```
+@Pointcut("@within(com.apress.spring6recipes.calculator.LoggingRequired)")
+public void loggingOperation () {}
+```
+- obs: o @ indica que é para anotação e sem indica para classes ou métodos
+- ou
+```
+@Pointcut("@annotation(com.github.fabriciolfj.javaexamples.annotations.LogAop)")
+```
+
+### Agregando funcionalidades via aspectj
+- um recurso interessante é fazer uma classes simiular que está herdando 2.
+- no exemplo abaixo, uma classe agrega funcionalidade, de 2 interfaces (com suas correspondentes implementações)
+- mas a classe em si, não é modificada.
+```
+@Aspect
+@Component
+public class CalculatorIntroduction {
+
+    @DeclareParents(
+            value = "com.github.fabriciolfj.javaexamples.service.impl.StandardArithmeticCalculator",
+            defaultImpl = SimpleMaxCalculator.class
+    )
+    public MaxCalculator maxCalculator;
+
+    @DeclareParents(
+            value = "com.github.fabriciolfj.javaexamples.service.impl.StandardArithmeticCalculator",
+            defaultImpl = SimpleMinCalculator.class
+    )
+    public MinCalculator minCalculator;
+}
+```
+- a chamada seria
+```
+
+    private final ArithmeticCalculator calculator;
+
+    @GetMapping
+    public void test() {
+        //calculator.add(1.2, 2);
+        //calculator.mul(3, 3);
+        //calculator.div(4, 2);
+        var maxCalculator = (MaxCalculator) calculator;
+        maxCalculator.max(1, 2);
+
+        var minCalculator = (MinCalculator) calculator;
+        minCalculator.min(4, 5);
+    }
+``

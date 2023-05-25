@@ -33,6 +33,9 @@ public class LoggingAspect {
         for (int i = 0; i < joinPoint.getArgs().length; i ++) {
             log.info("method {}, args received {}", joinPoint.getSignature().getName(), joinPoint.getArgs()[i]);
         }
+
+        log.info("target class: {}", joinPoint.getTarget().getClass().getName());
+        log.info("this class: {}", joinPoint.getThis().getClass().getName());
     }
 
     @AfterThrowing("logArgs()")
