@@ -102,4 +102,14 @@ public class CalculatorIntroduction {
         var minCalculator = (MinCalculator) calculator;
         minCalculator.min(4, 5);
     }
-``
+```
+## scopes
+- Singleton: É o escopo padrão. Quando um bean é definido como singleton, o contêiner do Spring cria uma única instância desse bean por aplicação e a reutiliza sempre que o bean é solicitado. Todas as solicitações de beans com escopo singleton retornarão a mesma instância.
+- Prototype: Com esse escopo, o contêiner do Spring cria uma nova instância do bean sempre que é solicitada. Diferentes solicitações de beans com escopo prototype retornarão instâncias separadas.
+- Request: Esse escopo está disponível apenas para aplicativos da web. Cada solicitação HTTP resulta na criação de uma nova instância do bean. O bean fica disponível apenas para a duração da solicitação HTTP.
+- Session: Também disponível apenas para aplicativos da web, esse escopo cria um bean exclusivo para cada sessão do usuário. O bean permanece disponível durante a sessão do usuário. 
+- Global Session: Esse escopo é semelhante ao escopo de sessão, mas é aplicado apenas em aplicativos da web com várias sessões. O bean fica disponível durante a sessão global, que abrange várias sessões de usuário.
+- Application: Esse escopo é válido apenas para aplicativos da web que usam o contexto do aplicativo. O contêiner do Spring cria uma única instância do bean por aplicação e a reutiliza em todas as solicitações. 
+- WebSocket: Esse escopo está disponível para aplicativos da web que usam o protocolo WebSocket. Cada conexão WebSocket tem um bean exclusivo associado a ela.
+
+2.

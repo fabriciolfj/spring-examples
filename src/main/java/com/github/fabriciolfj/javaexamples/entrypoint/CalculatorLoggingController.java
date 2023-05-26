@@ -14,6 +14,7 @@ public class CalculatorLoggingController {
 
     private final ArithmeticCalculator calculator;
     private final ComplexCalculator complexCalculator;
+    private final ComplexService complexService;
 
     @GetMapping("/complex")
     public void testComplex() {
@@ -23,7 +24,7 @@ public class CalculatorLoggingController {
 
     @GetMapping
     public void test() {
-        calculator.add(1.2, 2);
+        /*calculator.add(1.2, 2);
         calculator.mul(3, 3);
         calculator.div(4, 2);
         var maxCalculator = (MaxCalculator) calculator;
@@ -33,7 +34,8 @@ public class CalculatorLoggingController {
         minCalculator.min(4, 5);
 
         var counter = (Counter) calculator;
-        System.out.println("Quantidade de chamadas " + counter.getCount());
+        System.out.println("Quantidade de chamadas " + counter.getCount());*/
+        System.out.println(complexService.toString());
     }
 
 }
