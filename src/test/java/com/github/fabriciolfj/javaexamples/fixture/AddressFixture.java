@@ -1,4 +1,4 @@
-package fixture;
+package com.github.fabriciolfj.javaexamples.fixture;
 
 import com.github.fabriciolfj.javaexamples.data.Address;
 import com.github.fabriciolfj.javaexamples.data.Person;

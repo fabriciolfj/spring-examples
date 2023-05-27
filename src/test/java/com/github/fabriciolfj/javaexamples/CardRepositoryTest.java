@@ -1,26 +1,18 @@
 package com.github.fabriciolfj.javaexamples;
 
-import com.github.fabriciolfj.javaexamples.data.Person;
 import com.github.fabriciolfj.javaexamples.repository.AddressRepository;
 import com.github.fabriciolfj.javaexamples.repository.PersonRepository;
-import fixture.AddressFixture;
-import fixture.PersonFixture;
-import org.junit.jupiter.api.BeforeAll;
+import com.github.fabriciolfj.javaexamples.fixture.AddressFixture;
+import com.github.fabriciolfj.javaexamples.fixture.PersonFixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.org.apache.commons.io.LineIterator;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -31,17 +23,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CardRepositoryTest {
 
     @Container
+    @ServiceConnection
     static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:14.1")
             .withDatabaseName("test")
             .withUsername("sa")
             .withPassword("sa");
 
-    @DynamicPropertySource
+   /* @DynamicPropertySource
     static void setProperties(final DynamicPropertyRegistry registry) {
         registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
         registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
         registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
-    }
+    }*/
 
     @Autowired
     private PersonRepository repository;

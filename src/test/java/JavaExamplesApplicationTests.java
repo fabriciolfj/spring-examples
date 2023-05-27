@@ -1,11 +1,14 @@
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.github.fabriciolfj.javaexamples.JavaExamplesApplication;
+import com.github.fabriciolfj.javaexamples.configuration.PostgresSqlContainerDevMode;
+import org.springframework.boot.SpringApplication;
 
-@SpringBootTest
+//@SpringBootTest
 class JavaExamplesApplicationTests {
 
-	//@Test
-	void contextLoads() {
+	public static void main(String[] args) {
+		SpringApplication.from(JavaExamplesApplication::main)
+				.with(PostgresSqlContainerDevMode.class)
+				.run(args);
 	}
 
 }

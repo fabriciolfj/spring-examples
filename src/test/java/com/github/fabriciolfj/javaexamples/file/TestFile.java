@@ -1,4 +1,4 @@
-package file;
+package com.github.fabriciolfj.javaexamples.file;
 
 import org.junit.jupiter.api.Test;
 
