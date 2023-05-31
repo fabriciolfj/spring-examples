@@ -113,4 +113,5 @@ public class CalculatorIntroduction {
 - WebSocket: Esse escopo está disponível para aplicativos da web que usam o protocolo WebSocket. Cada conexão WebSocket tem um bean exclusivo associado a ela.
 
 
-3.1
+## SseEmitter
+- quando quero enviar enventos ou um fluxo de stream ao cliente, via uma api rest
