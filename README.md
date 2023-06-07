@@ -115,3 +115,4 @@ public class CalculatorIntroduction {
 
 ## SseEmitter
 - quando quero enviar enventos ou um fluxo de stream ao cliente, via uma api rest
+6.5
