@@ -28,6 +28,12 @@ public class RequestHeaderAuthenticationProvider implements AuthenticationProvid
         return new PreAuthenticatedAuthenticationToken(authentication.getPrincipal(), null, new ArrayList<>());
     }
 
+    /*
+    * No caso específico desse código, o método supports verifica se a classe Authentication fornecida
+    * é igual a PreAuthenticatedAuthenticationToken. Isso significa que esse provedor de autenticação
+    * é responsável por autenticar apenas instâncias de PreAuthenticatedAuthenticationToken,
+    * que é a classe usada para autenticação baseada em cabeçalhos pré-autenticados.
+    * */
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(PreAuthenticatedAuthenticationToken.class);
