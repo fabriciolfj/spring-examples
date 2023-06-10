@@ -17,6 +17,8 @@ import java.util.Collections;
 @Configuration
 public class SecurityConfig {
 
+    private static final String URL =  "/api/v2/**";
+
     @Autowired
     private RequestHeaderAuthenticationProvider requestHeaderAuthenticationProvider;
 
@@ -26,7 +28,7 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .sessionManagement(e -> e.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterAt(requestHeaderAuthenticationFilter(), HeaderWriterFilter.class)
-                .authorizeHttpRequests(e -> e.requestMatchers("/api/v2/**").authenticated());
+                .authorizeHttpRequests(e -> e.requestMatchers(URL).authenticated());
 
         return http.build();
     }
@@ -36,7 +38,7 @@ public class SecurityConfig {
         final RequestHeaderAuthenticationFilter filter = new RequestHeaderAuthenticationFilter();
         filter.setPrincipalRequestHeader("x-auth-secret-key");
         filter.setExceptionIfHeaderMissing(false);
-        filter.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/api/**"));
+        filter.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher(URL));
         filter.setAuthenticationManager(authenticationManager());
 
         return filter;
