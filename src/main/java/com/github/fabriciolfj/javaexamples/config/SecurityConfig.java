@@ -27,7 +27,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable)
                 .sessionManagement(e -> e.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterAt(requestHeaderAuthenticationFilter(), HeaderWriterFilter.class)
+                .addFilterAt(requestHeaderAuthenticationFilter(), HeaderWriterFilter.class) //adicionar um filtro antes do HeaderWriterFilter
                 .authorizeHttpRequests(e -> e.requestMatchers(URL).authenticated());
 
         return http.build();
