@@ -112,4 +112,6 @@ public class CalculatorIntroduction {
 - Application: Esse escopo é válido apenas para aplicativos da web que usam o contexto do aplicativo. O contêiner do Spring cria uma única instância do bean por aplicação e a reutiliza em todas as solicitações. 
 - WebSocket: Esse escopo está disponível para aplicativos da web que usam o protocolo WebSocket. Cada conexão WebSocket tem um bean exclusivo associado a ela.
 
-2.
+
+## SseEmitter
+- quando quero enviar enventos ou um fluxo de stream ao cliente, via uma api rest

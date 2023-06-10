@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.javaexamples.simulacoes;
+package com.github.fabriciolfj.javaexamples.simulacao;
 
 import java.util.HashMap;
 import java.util.Map;

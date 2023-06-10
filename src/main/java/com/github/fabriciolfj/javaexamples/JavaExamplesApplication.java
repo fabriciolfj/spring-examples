@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.weaving.AspectJWeavingEnabler;
@@ -15,7 +17,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @ComponentScan(basePackages = "com.github.fabriciolfj.javaexamples")
 //@EnableLoadTimeWeaving
 //@EnableSpringConfigured
-public class JavaExamplesApplication implements CommandLineRunner {
+public class JavaExamplesApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
 	@Autowired
 	private ThreadPoolTaskExecutor threadPoolTaskExecutor;
@@ -53,4 +55,9 @@ public class JavaExamplesApplication implements CommandLineRunner {
 	public static AspectJWeavingEnabler aspectJWeavingEnabler() {
 		return new AspectJWeavingEnabler();
 	}*/
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(JavaExamplesApplication.class);
+	}
 }
