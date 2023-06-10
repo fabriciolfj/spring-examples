@@ -33,6 +33,12 @@ public class RequestHeaderAuthenticationProvider implements AuthenticationProvid
     * é igual a PreAuthenticatedAuthenticationToken. Isso significa que esse provedor de autenticação
     * é responsável por autenticar apenas instâncias de PreAuthenticatedAuthenticationToken,
     * que é a classe usada para autenticação baseada em cabeçalhos pré-autenticados.
+    *
+    * Ao retornar true no método supports para a classe PreAuthenticatedAuthenticationToken,
+    * o Spring Security sabe que esse provedor de autenticação é adequado para processar essa classe específica
+    * e chama o método authenticate desse provedor para realizar a autenticação.
+    * Caso supports retorne false para a classe Authentication fornecida, o Spring Security passará para
+    *  o próximo provedor de autenticação configurado na lista.
     * */
     @Override
     public boolean supports(Class<?> authentication) {
