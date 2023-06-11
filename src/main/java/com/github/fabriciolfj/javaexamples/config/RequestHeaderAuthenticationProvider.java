@@ -28,7 +28,12 @@ public class RequestHeaderAuthenticationProvider implements AuthenticationProvid
         return new PreAuthenticatedAuthenticationToken(authentication.getPrincipal(), null, new ArrayList<>());
     }
 
-    /*
+    /* O método supports é utilizado pelo Spring Security para determinar se o provedor de autenticação
+     (RequestHeaderAuthenticationProvider) é adequado para processar uma determinada instância de Authentication.
+
+      O Spring Security possui uma lista de provedores de autenticação configurados e,
+      ao receber uma requisição de autenticação, ele itera por esses provedores para encontrar aquele que
+       é capaz de autenticar a instância de Authentication fornecida
     * No caso específico desse código, o método supports verifica se a classe Authentication fornecida
     * é igual a PreAuthenticatedAuthenticationToken. Isso significa que esse provedor de autenticação
     * é responsável por autenticar apenas instâncias de PreAuthenticatedAuthenticationToken,
