@@ -16,6 +16,7 @@ services:
 
   zookeeper:
     image: zookeeper:3.6.1
+    platform: linux/amd64
     container_name: zookeeper
     restart: always
     networks:
