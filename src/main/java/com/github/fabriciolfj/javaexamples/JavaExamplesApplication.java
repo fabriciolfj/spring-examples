@@ -10,10 +10,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.context.weaving.AspectJWeavingEnabler;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableJpaRepositories("com.github.fabriciolfj.javaexamples.repository")
 @EnableAspectJAutoProxy
+@EnableTransactionManagement
 @ComponentScan(basePackages = "com.github.fabriciolfj.javaexamples")
 //@EnableLoadTimeWeaving
 //@EnableSpringConfigured

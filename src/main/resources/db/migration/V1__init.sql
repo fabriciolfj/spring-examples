@@ -33,3 +33,11 @@ WHEEL INT,
 SEAT INT,
 PRIMARY KEY (VEHICLE_NO)
 );
+
+CREATE TABLE COURSE (
+ID BIGSERIAL primary key not null,
+TITLE varchar(100) not null,
+BEGIN_DATE date,
+END_DATE date,
+FEE INT
+);

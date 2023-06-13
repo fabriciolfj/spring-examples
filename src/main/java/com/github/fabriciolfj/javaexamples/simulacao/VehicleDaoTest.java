@@ -16,7 +16,7 @@ public class VehicleDaoTest implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var vehicles = new ArrayList<>();
+        /*var vehicles = new ArrayList<>();
         var vehicle = new Vehicle("TEM00011", "red", 4, 4);
         vehicleDao.insert(vehicle);
 
@@ -24,7 +24,7 @@ public class VehicleDaoTest implements CommandLineRunner {
         var total = vehicleDao.countAll();
 
         System.out.println(color);
-        System.out.println(total);
+        System.out.println(total);*/
 
     }
 }
