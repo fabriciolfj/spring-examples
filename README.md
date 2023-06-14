@@ -115,4 +115,11 @@ public class CalculatorIntroduction {
 
 ## SseEmitter
 - quando quero enviar enventos ou um fluxo de stream ao cliente, via uma api rest
-6.13
+
+## Transacoes
+- serie de ações tratadas como uma única unidade de trabalho, devem ser concluídas totalmente ou não ter efeito
+- O conceito de transações pode ser descrito com quatro propriedades principais — atomicidade, consistência, isolamento e durabilidade (ACID) :
+  - Atomicidade : Uma transação é uma operação atômica que consiste em uma série de ações. A atomicidade de uma transação garante que as ações sejam totalmente concluídas ou não tenham nenhum efeito. 
+  - Consistência : Uma vez que todas as ações de uma transação foram concluídas, a transação é confirmada. Assim, seus dados e recursos estarão em um estado consistente em conformidade com as regras de negócios. 
+  - Isolamento : como pode haver muitas transações processando com o mesmo conjunto de dados ao mesmo tempo, cada transação deve ser isolada das outras para evitar corrupção de dados. 
+  - Durabilidade : Depois que uma transação é concluída, seu resultado deve ser durável para sobreviver a qualquer falha do sistema (imagine se a energia de sua máquina fosse cortada bem no meio da confirmação de uma transação). Normalmente, o resultado de uma transação é gravado no armazenamento persistente.
