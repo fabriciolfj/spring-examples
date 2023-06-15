@@ -24,6 +24,6 @@ public class Course {
     @Column(name = "END_DATE")
     private LocalDate endDate;
     @Column(name = "FEE")
-    @OneToMany(orphanRemoval = true)
+    //@OneToMany(orphanRemoval = true)
     private int fee;
 }
