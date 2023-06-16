@@ -113,6 +113,9 @@ public class CalculatorIntroduction {
 - WebSocket: Esse escopo está disponível para aplicativos da web que usam o protocolo WebSocket. Cada conexão WebSocket tem um bean exclusivo associado a ela.
 
 
+## Tratamento de erros com Spring MVC usando RFC-7807
+- Como o JSON se tornou o padrão de fato de comunicação na Web, agora também existe um padrão (no momento ainda proposto) para retornar respostas de erro ao cliente. Isso é RFC-7807, que pode ser mais conhecido como API de detalhes do problema para HTTP. Esse padrão descreve uma resposta na qual é possível dizer o que há de errado com a solicitação recebida ou o que aconteceu no servidor.
+
 ## SseEmitter
 - quando quero enviar enventos ou um fluxo de stream ao cliente, via uma api rest
 
