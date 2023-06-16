@@ -1,11 +1,15 @@
 package com.github.fabriciolfj.javaexamples.repository.impl;
 
 import com.github.fabriciolfj.javaexamples.repository.BookShop;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-public class JdbcBookShop implements BookShop {
+
+public class JdbcBookShop  {
 
     private DataSource dataSource;
 
@@ -13,7 +17,8 @@ public class JdbcBookShop implements BookShop {
         this.dataSource = dataSource;
     }
 
-    @Override
+   // @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void purchase(String isbn, String username) {
         try (var conn = dataSource.getConnection()) {
             int price;
@@ -40,4 +45,6 @@ public class JdbcBookShop implements BookShop {
             throw new RuntimeException(e);
         }
     }
+
+
 }

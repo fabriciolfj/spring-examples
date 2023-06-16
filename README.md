@@ -123,3 +123,10 @@ public class CalculatorIntroduction {
   - Consistência : Uma vez que todas as ações de uma transação foram concluídas, a transação é confirmada. Assim, seus dados e recursos estarão em um estado consistente em conformidade com as regras de negócios. 
   - Isolamento : como pode haver muitas transações processando com o mesmo conjunto de dados ao mesmo tempo, cada transação deve ser isolada das outras para evitar corrupção de dados. 
   - Durabilidade : Depois que uma transação é concluída, seu resultado deve ser durável para sobreviver a qualquer falha do sistema (imagine se a energia de sua máquina fosse cortada bem no meio da confirmação de uma transação). Normalmente, o resultado de uma transação é gravado no armazenamento persistente.
+
+
+## Isolamento
+- default -> nivel padrã do banco de dados READ_COMMITTED
+- READ_UNCOMMITTED -> permite que a leitura seja feita em alterações não confirmadas por outras transações (podem ocorrer problemas de leitura suja, leitura não repetivel ou fantasma)
+- REPEATABLE_READ -> Garante que uma transação possa ler valores idênticos de um campo várias vezes. Durante esta transação, as atualizações feitas por outras transações neste campo são proibidas. Os problemas de leitura suja e leitura não repetível podem ser evitados, mas o problema de leitura fantasma ainda pode ocorrer.
+- SERIALIZÁVEL -> Garante que uma transação possa ler linhas idênticas de uma tabela várias vezes. Durante esta transação, inserções, atualizações e exclusões feitas por outras transações nesta tabela são proibidas. Todos os problemas de simultaneidade podem ser evitados, mas o desempenho será baixo.
