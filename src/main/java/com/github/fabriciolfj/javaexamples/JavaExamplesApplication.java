@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableJpaRepositories("com.github.fabriciolfj.javaexamples.repository")
 @EnableAspectJAutoProxy
-@EnableTransactionManagement
+@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @ComponentScan(basePackages = "com.github.fabriciolfj.javaexamples")
 //@EnableLoadTimeWeaving
 //@EnableSpringConfigured
