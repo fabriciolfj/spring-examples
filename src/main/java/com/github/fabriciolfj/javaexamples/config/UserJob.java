@@ -33,7 +33,7 @@ public class UserJob {
             values
             (:firstName,:lastName,:company,:address,:city,:state,:zip,:county,:url,:phoneNumber,:fax)""";
     private final JobRepository jobRepository;
-    @Value("file:${user.home}/batches/registrations.csv")
+    @Value("file:/home/spark/registrations.csv")
     private Resource input;
 
     public UserJob(JobRepository jobRepository) {
@@ -41,7 +41,7 @@ public class UserJob {
     }
 
     //minha job
-    @Bean
+    @Bean(name = "userjob")
     public Job insertIntoDbFromCsvJob(Step step1) {
         var name = "User Registration Import Job";
         var builder = new JobBuilder(name, jobRepository);

@@ -3,14 +3,10 @@ package com.github.fabriciolfj.javaexamples.config;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import java.util.ArrayList;
 
+/*
 @Configuration
 public class RequestHeaderAuthenticationProvider implements AuthenticationProvider {
 
@@ -45,8 +41,9 @@ public class RequestHeaderAuthenticationProvider implements AuthenticationProvid
     * Caso supports retorne false para a classe Authentication fornecida, o Spring Security passará para
     *  o próximo provedor de autenticação configurado na lista.
     * */
+/*
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(PreAuthenticatedAuthenticationToken.class);
-    }
-}
+    }*/
+//}

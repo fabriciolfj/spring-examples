@@ -1,16 +1,23 @@
 package com.github.fabriciolfj.javaexamples.entity;
 
-public record UserRegistration(
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-				String firstName,
-				String lastName,
-				String company,
-				String address,
-				String city,
-				String stat,
-				String zip,
-				String county,
-				String url,
-				String phoneNumber,
-				String fax) {
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class UserRegistration {
+
+	private	String firstName;
+	private	String lastName;
+	private String company;
+	private	String address;
+	private	String city;
+	private	String state;
+	private	String zip;
+	private	String county;
+	private	String url;
+	private	String phoneNumber;
+	private	String fax;
 }
