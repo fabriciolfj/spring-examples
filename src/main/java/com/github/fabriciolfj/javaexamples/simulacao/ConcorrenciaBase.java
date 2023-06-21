@@ -16,6 +16,6 @@ public class ConcorrenciaBase implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        test.execute();
+        //test.execute();
     }
 }

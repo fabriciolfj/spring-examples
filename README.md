@@ -142,5 +142,9 @@ public class CalculatorIntroduction {
  - jobinstances -> que recebe o jobparameters
  - jobexecutions -> e a instance da jobinstances
  - StepExecution -> as etapadas para processamento, pode ter proximas etapas ou não
+- alguns objetos utilizados para configuração:
+ - jobrepository -> lida com a persistência e recuperação para os modelos de domínio que envolvem as stepas, tasks e assim por diante
+ - jobregistry -> armazenamento central de informações sobre um determinado trabalho e controla o quadro geral sobre todos os works no sistema.
+ - taskExecutorJob -> mecanismo para iniciar jobs em lote.
 
-8.2
+8.4
