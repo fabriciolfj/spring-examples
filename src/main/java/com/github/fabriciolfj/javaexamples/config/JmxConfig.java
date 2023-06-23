@@ -1,6 +1,7 @@
 package com.github.fabriciolfj.javaexamples.config;
 
 import com.github.fabriciolfj.javaexamples.service.FileReplicator;
+import com.github.fabriciolfj.javaexamples.service.ReplicationNotificationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jmx.export.MBeanExporter;
@@ -10,10 +11,25 @@ import org.springframework.jmx.export.assembler.MBeanInfoAssembler;
 import org.springframework.jmx.export.assembler.MethodNameBasedMBeanInfoAssembler;
 import org.springframework.jmx.support.MBeanServerFactoryBean;
 
+import javax.management.NotificationListener;
 import java.util.Map;
 
 @Configuration
 public class JmxConfig {
+
+    @Bean
+    public AnnotationMBeanExporter mBeanExporter(NotificationListener nl) {
+        var mbean = new AnnotationMBeanExporter();
+        mbean.setDefaultDomain("bean");
+        mbean.setNotificationListenerMappings(Map.of("bean:name=documentReplicator,type=JMXFileReplicator", nl));
+
+        return mbean;
+    }
+
+    @Bean
+    public ReplicationNotificationListener replicationNotificationListener() {
+        return new ReplicationNotificationListener();
+    }
 
     /*@Bean
     public MBeanExporter mBeanExporter() {

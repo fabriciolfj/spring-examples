@@ -5,16 +5,22 @@ import com.github.fabriciolfj.javaexamples.service.FileReplicator;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
+import org.springframework.jmx.export.notification.NotificationPublisher;
+import org.springframework.jmx.export.notification.NotificationPublisherAware;
 
+import javax.management.Notification;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ManagedResource
-public class JMXFileReplicator implements FileReplicator {
+public class JMXFileReplicator implements FileReplicator, NotificationPublisherAware {
     private String srcDir;
     private String destDir;
     private FileCopier fileCopier;
+    private NotificationPublisher notificationPublisher;
+    private final AtomicInteger sequenceNumber = new AtomicInteger();
 
     @ManagedAttribute(description = "obter diretorio de origem")
     public String getSrcDir() {
@@ -49,5 +55,14 @@ public class JMXFileReplicator implements FileReplicator {
             fileList.filter(Files::isRegularFile)
                     .forEach(it -> fileCopier.copyFile(it, Path.of(destDir)));
         }
+
+        var seq = sequenceNumber.incrementAndGet();
+        var notification = new Notification("replication.complete", this, seq);
+        notificationPublisher.sendNotification(notification);
+    }
+
+    @Override
+    public void setNotificationPublisher(NotificationPublisher notificationPublisher) {
+        this.notificationPublisher = notificationPublisher;
     }
 }
