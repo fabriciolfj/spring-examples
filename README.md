@@ -147,4 +147,34 @@ public class CalculatorIntroduction {
  - jobregistry -> armazenamento central de informações sobre um determinado trabalho e controla o quadro geral sobre todos os works no sistema.
  - taskExecutorJob -> mecanismo para iniciar jobs em lote.
 
-8.4
+
+# JMX com spring
+- o java management extensions é uma tenclogia para gerenciar e monitorar recursos do sistema. Esses recursos são representados como beans gerenciados.
+- podemos exportar Mbeans para o jmx, afim dele executar operações, por exemplo:
+ - com a anotação @EnableMBeanExport, detecta todos os beans que possuem a anotação @ManagedResource
+ - apos detectar, estes apareceram no servidor jmx e seus métodos podem ser chamados.
+ - abaixo um exemplo de uma classe onde o método replicate() aparecerá no servidor jmx(jconsole por ex)
+
+```
+@ManagedResource
+public class JMXFileReplicator implements FileReplicator {
+    private String srcDir;
+    private String destDir;
+    private FileCopier fileCopier;
+
+    @ManagedAttribute(description = "obter diretorio de origem")
+    public String getSrcDir() {
+        return srcDir;
+    }
+
+    @Override
+    @ManagedOperation(description = "replicar arquivos")
+    public synchronized void replicate() throws IOException {
+        var files = Path.of(srcDir);
+        try (var fileList = Files.list(files)) {
+            fileList.filter(Files::isRegularFile)
+                    .forEach(it -> fileCopier.copyFile(it, Path.of(destDir)));
+        }
+    }
+}
+```

@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@EnableMBeanExport
 @SpringBootApplication
 @EnableJpaRepositories("com.github.fabriciolfj.javaexamples.repository")
 @EnableAspectJAutoProxy
