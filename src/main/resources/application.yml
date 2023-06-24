@@ -56,16 +56,16 @@ management:
     sampling:
       probability: 1.0
   endpoints:
+    info:
+      enabled: true
+    health:
+      show-details: always
     web:
       exposure:
-        include: "*"
-  metrics:
-    export:
-      prometheus:
-        enabled: true
+        include: health,metrics,prometheus,loggers
   endpoint:
     metrics:
-      enabled: false
+      enabled: true
     prometheus:
       enabled: true
   zipkin:

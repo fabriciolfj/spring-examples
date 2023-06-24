@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/*
 @Component
 public class StartBatch implements CommandLineRunner {
 
@@ -24,3 +25,4 @@ public class StartBatch implements CommandLineRunner {
         jobExecution.run(job, new JobParameters());
     }
 }
+*/

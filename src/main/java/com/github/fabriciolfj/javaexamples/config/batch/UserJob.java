@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.javaexamples.config;
+package com.github.fabriciolfj.javaexamples.config.batch;
 
 import com.github.fabriciolfj.javaexamples.entity.UserRegistration;
 import org.springframework.batch.core.Job;
@@ -25,7 +25,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
-@Configuration
+/*@Configuration
 public class UserJob {
 
     private static final String INSERT_REGISTRATION_QUERY = """
@@ -111,4 +111,4 @@ public class UserJob {
         itemWriter.setItemSqlParameterSourceProvider(provider);
         return itemWriter;
     }
-}
+}*/

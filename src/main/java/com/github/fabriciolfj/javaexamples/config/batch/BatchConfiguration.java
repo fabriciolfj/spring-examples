@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.javaexamples.config;
+package com.github.fabriciolfj.javaexamples.config.batch;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import javax.sql.DataSource;
 
-@Configuration
+/*@Configuration
 @EnableBatchProcessing
 @ComponentScan("com.github.fabriciolfj")
 @PropertySource("classpath:/batch.properties")
@@ -47,4 +47,4 @@ public class BatchConfiguration {
         initializer.setDatabasePopulator(populator);
         return initializer;
     }
-}
+}*/

@@ -181,3 +181,5 @@ public class JMXFileReplicator implements FileReplicator {
 - podemos tambem enviar notificações ao servidor jmx e tambem ouvir
 - para enviar devemos implementar a interface NotificationPublisherAware
 - para ouvir as mensagens, devemos implementar o NotificationListener, registrar no mbeanexporter e filtrar o tipo de bean que queremos
+
+10.3
