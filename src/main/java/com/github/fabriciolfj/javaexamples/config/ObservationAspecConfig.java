@@ -1,5 +1,6 @@
-package com.github.fabriciolfj.javaexamples.aspects;
+package com.github.fabriciolfj.javaexamples.config;
 
+import com.github.fabriciolfj.javaexamples.aspects.PerformanceTrackerHandler;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.aop.ObservedAspect;
 import org.springframework.context.annotation.Bean;
