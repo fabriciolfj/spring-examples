@@ -13,6 +13,7 @@ import org.springframework.context.weaving.AspectJWeavingEnabler;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.ws.config.annotation.EnableWs;
 
 //@EnableMBeanExport
 @SpringBootApplication
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @ComponentScan(basePackages = "com.github.fabriciolfj.javaexamples")
+@EnableWs
 //@EnableLoadTimeWeaving
 //@EnableSpringConfigured
 public class JavaExamplesApplication extends SpringBootServletInitializer implements CommandLineRunner {
