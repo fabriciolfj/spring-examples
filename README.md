@@ -182,4 +182,9 @@ public class JMXFileReplicator implements FileReplicator {
 - para enviar devemos implementar a interface NotificationPublisherAware
 - para ouvir as mensagens, devemos implementar o NotificationListener, registrar no mbeanexporter e filtrar o tipo de bean que queremos
 
-10.3
+### JFR (java flight recorder)
+- ferramenta para registrar informações de diagnóstico e criação de perfil sobre um aplicativo em execução em uma jvm
+- para iniciar a gravação dos eventos no jfr, temos algumas opções, entre elas o argumento:
+```
+java -XX:StartFlightRecording:filename=recording.jfr,duration=30s -jar app.jar
+```
