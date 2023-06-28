@@ -188,3 +188,13 @@ public class JMXFileReplicator implements FileReplicator {
 ```
 java -XX:StartFlightRecording:filename=recording.jfr,duration=30s -jar app.jar
 ```
+
+### Metricas
+- são estatísticas sobre um comportamento do tempo de execução do seu app, por exemplo: medidores, contadores e cronômetros.
+
+#### mais alguns conceitos relacionados a metricas
+- observação: e a gravação real de algo que está acontecendo em seu app (quem trata e um ObservationHandler)
+  cada obs tem uma implementação de observation context, que contém todos os metadas relevantes. Por ex: no caso de solicitação http terá os métodos http, status s etc.
+- keyvalues: são fornecedios para uma implementação observationConvention, que está vinculada a uma implementação específica de observation context.
+  key values são chamados de baixa cardinalidade, quando há um número baixo e limitado de valores possíveis (como verbo http)
+  key values são chamados de alta cardinalidade, quando há um valor alto, como url por ex.
