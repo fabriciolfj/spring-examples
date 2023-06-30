@@ -198,3 +198,6 @@ java -XX:StartFlightRecording:filename=recording.jfr,duration=30s -jar app.jar
 - keyvalues: são fornecedios para uma implementação observationConvention, que está vinculada a uma implementação específica de observation context.
   key values são chamados de baixa cardinalidade, quando há um número baixo e limitado de valores possíveis (como verbo http)
   key values são chamados de alta cardinalidade, quando há um valor alto, como url por ex.
+
+### Tarefas gradle
+- https://www.baeldung.com/spring-boot-3-gradle-configure-tasks
