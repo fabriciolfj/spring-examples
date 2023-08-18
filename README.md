@@ -126,7 +126,25 @@ public class CalculatorIntroduction {
   - Consistência : Uma vez que todas as ações de uma transação foram concluídas, a transação é confirmada. Assim, seus dados e recursos estarão em um estado consistente em conformidade com as regras de negócios. 
   - Isolamento : como pode haver muitas transações processando com o mesmo conjunto de dados ao mesmo tempo, cada transação deve ser isolada das outras para evitar corrupção de dados. 
   - Durabilidade : Depois que uma transação é concluída, seu resultado deve ser durável para sobreviver a qualquer falha do sistema (imagine se a energia de sua máquina fosse cortada bem no meio da confirmação de uma transação). Normalmente, o resultado de uma transação é gravado no armazenamento persistente.
-- o @EnableTransactionManagement habilita no spring uma forma de escolher qual implementação utilizar para a funcionalidade de transacao, PROXY ou ASPECJ.
+  - @EnableTransactionManagement habilita no spring uma forma de escolher qual implementação utilizar para a funcionalidade de transacao, PROXY ou ASPECJ.
+```
+  - Algumas características dos modos:
+
+Advice:
+
+Fácil de usar, requer apenas a anotação.
+Cria um proxy via CGLIB ou JDK em torno do bean.
+Algum overhead devido ao uso de reflexão.
+AspectJ:
+
+Melhor performance por não usar reflexão.
+Requer configuração extra do AspectJ.
+Permite pointcuts mais avançados.
+Proxy:
+
+Sem overhead de reflexão, mas limitado a interfaces.
+Requer registration manual de cada proxy.
+```
 
 ## Isolamento
 - default -> nivel padrã do banco de dados READ_COMMITTED
